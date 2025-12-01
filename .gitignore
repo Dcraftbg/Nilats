@@ -1,0 +1,8 @@
+old/
+*.old
+bin/
+nob
+dumb_gif*
+database*
+test*
+token.h
