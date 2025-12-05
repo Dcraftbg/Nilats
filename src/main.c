@@ -341,7 +341,7 @@ void on_message(struct discord *client, const struct discord_message *event) {
             }
             log_info("%s is at %ld social credit", event->author->username, credit.social_credit);
             if(credit.social_credit < -100) {
-                uint64_t severity = (-(credit.social_credit + 100)) / 20 + 1;
+                uint64_t severity = (-(credit.social_credit + 100)) / 10 + 1;
                 send_to_gulag(client, event->author->username, event->author->id, event->guild_id, server_config.gulag_id, server_config.gulag_role_id, server_config.access_role_id, severity);
             }
         }
