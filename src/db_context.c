@@ -86,7 +86,7 @@ int DbContext_send_to_gulag(DbContext* db, uint64_t guild_id, uint64_t user_id, 
         "values ( ?, 0, ?, 1 )\n"
         "on conflict(user_id) do update set\n"
         "   score = 0,\n"
-        "   release_score = amount_of_times_sent_to_the_gulag * ?,\n"
+        "   release_score = (amount_of_times_sent_to_the_gulag + 1) * ?,\n"
         "   amount_of_times_sent_to_the_gulag = amount_of_times_sent_to_the_gulag + 1\n", guild_id);
  
     e = sqlite3_prepare_v2(db->db, buf, -1, &stmt, NULL);
